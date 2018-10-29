@@ -2,7 +2,7 @@
 
 class ActivityPub::Activity::Create < ActivityPub::Activity
   SUPPORTED_TYPES = %w(Note).freeze
-  CONVERTED_TYPES = %w(Image Video Article).freeze
+  CONVERTED_TYPES = %w(Image Video Article Page).freeze
 
   def perform
     return if delete_arrived_first?(object_uri) || unsupported_object_type? || invalid_origin?(@object['id'])
@@ -129,7 +129,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
     return if tag['name'].blank?
 
     hashtag = tag['name'].gsub(/\A#/, '').mb_chars.downcase
-    hashtag = Tag.where(name: hashtag).first_or_create(name: hashtag)
+    hashtag = Tag.where(name: hashtag).first_or_create!(name: hashtag)
 
     return if @tags.include?(hashtag)
 
