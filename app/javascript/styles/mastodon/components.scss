@@ -264,6 +264,11 @@
 .compose-form {
   padding: 10px;
 
+  &__sensitive-button {
+    padding: 10px;
+    padding-top: 0;
+  }
+
   .compose-form__warning {
     color: $inverted-text-color;
     margin-bottom: 10px;
@@ -4764,7 +4769,6 @@ a.status-card.compact:hover {
 .account-gallery__container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   padding: 4px 2px;
 }
 
