@@ -408,10 +408,18 @@
     }
   }
 
-  .emoji-picker-wrapper,
   .autosuggest-textarea__suggestions-wrapper {
     position: relative;
     height: 0;
+  }
+
+  .emoji-picker-wrapper {
+    position: relative;
+    height: 0;
+
+    &.emoji-picker-wrapper--hidden {
+      display: none;
+    }
   }
 
   .autosuggest-textarea__suggestions {
@@ -2071,6 +2079,10 @@ a.account__display-name {
 
     .account {
       padding: 15px 10px;
+
+      &__header__bio {
+        margin: 0 -10px;
+      }
     }
 
     .notification {
